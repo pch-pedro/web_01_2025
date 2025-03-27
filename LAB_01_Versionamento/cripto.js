@@ -1,0 +1,1 @@
+let palavraCriptografada = console.log("Insira sua mensagem cripografada seguindo as seguintes regras: @ = a; 3 = e; ! = i; * = u e % = u");

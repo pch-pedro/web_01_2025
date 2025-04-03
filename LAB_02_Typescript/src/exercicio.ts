@@ -71,3 +71,34 @@ for(let i:number = 0; i < Frutas.length; i++){
 }
 
 //ExercicioCerto
+
+//Exercicios Lab3
+
+//Criando um Array do tipo números e atribuindo valores a ele: 
+let ArrayNumeros: number [] = [12, 25, 37, 40, 18, 55, 62, 71, 84, 91];
+
+//Criando dois Arrays para separar pares e impares: 
+let ArrayNumerosPares: number [] = [];
+let ArrayNumerosImpares: number [] = [];
+
+//Criando um loop para separar os valores do ArrayNumeros nos seus respctivos Arrays:
+let IndexArrayNumerosPares:number = 0;
+let IndexArrayNumerosImpares:number = 0;
+for (let i:number = 0; i < ArrayNumeros.length; i++){
+    if(ArrayNumeros[i]%2 == 0){
+        ArrayNumerosPares[IndexArrayNumerosPares] = ArrayNumeros[i] as number;
+        IndexArrayNumerosPares++;
+    }
+    else{
+        ArrayNumerosImpares[IndexArrayNumerosImpares] = ArrayNumeros[i] as number;
+        IndexArrayNumerosImpares++;
+    }
+}
+
+//Criando um loop para exibir os Arrays de numeros pares e impares:
+for(let i:number = 0; i < ArrayNumerosPares.length; i++){
+    console.log(`\n ${ArrayNumerosPares[i]} - Par`);
+}
+for(let i:number = 0; i < ArrayNumerosImpares.length; i++){
+    console.log(`\n ${ArrayNumerosImpares[i]} - Impar`);
+}

@@ -30,3 +30,44 @@ somar1(2, 2, imprimir);
 console.log("Antes do setTimeout");
 setTimeout(() => console.log("Executando o setTimeout"), 2000);
 console.log("Depois do setTimeout");
+
+//setInterval(() => console.log("Executando o setInterval"), 2000);
+
+console.log("Depois do setInterval");
+
+//Usando o clearTimeout e clearInterval
+let frase: string = "Rodando o setTimeout";
+
+let timeout = setTimeout(() => console.log("Rodando o setTimeout"), 2000);
+
+frase = "Rodando o clearTimeout";
+
+if(frase !== "Rodando o setTimeout"){
+    clearTimeout(timeout);
+    console.log(frase);
+}
+
+//usando o clearInterval para cancelar o setInterval
+let contador: number = 0;
+
+let interval = setInterval(() => {
+    contador ++;
+    console.log("Rodando o setInterval");
+    if(contador === 3){
+        console.log("Intervalo de 'Rodando o setInterval' cancelado após 3 execuções");
+        clearInterval (interval);
+    }
+}, 500);
+
+//Utilizando o sort
+//Sintaxe básica so sort: array.sort([compareFunction])
+//Exemplos: 
+const numeros: number[] = [10, 2, 100, 5];
+
+//Ordenando de forma crescente:
+numeros.sort((a: number, b: number) => a - b);
+
+//Ordenando de forma decrescente :
+numeros.sort((a: number, b: number) => b - a);
+
+console.log(numeros);

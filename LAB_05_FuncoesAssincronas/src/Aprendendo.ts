@@ -68,6 +68,28 @@ const numeros: number[] = [10, 2, 100, 5];
 numeros.sort((a: number, b: number) => a - b);
 
 //Ordenando de forma decrescente :
-numeros.sort((a: number, b: number) => b - a);
+//numeros.sort((a: number, b: number) => b - a);
 
 console.log(numeros);
+
+//Ordenação de Objetos 
+type Pessoa = {
+    nome: string;
+    idade: number;
+}
+
+const pessoas: Pessoa[] = [
+    {nome: "João", idade: 30},
+    {nome: "Maria", idade: 25}
+];
+
+//Ordenar por idade crescente
+pessoas.sort((a: Pessoa, b: Pessoa) => a.idade - b.idade);
+
+console.log(pessoas);
+
+//Ordenar por nome (ordem alfabética)
+pessoas.sort((a: Pessoa, b: Pessoa) => 
+a.nome.localeCompare(b.nome));
+
+console.log(pessoas);

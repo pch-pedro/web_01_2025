@@ -73,7 +73,7 @@ for(let i:number = 0; i < Frutas.length; i++){
 //ExercicioCerto
 
 //Exercicios Lab3
-
+//Exercício 1
 //Criando um Array do tipo números e atribuindo valores a ele: 
 let ArrayNumeros: number [] = [12, 25, 37, 40, 18, 55, 62, 71, 84, 91];
 
@@ -95,10 +95,83 @@ for (let i:number = 0; i < ArrayNumeros.length; i++){
     }
 }
 
+//Colocando o vetor em ordem crescente:
+ArrayNumerosPares.sort((a: number, b: number) => a-b);
+
+ArrayNumerosImpares.sort((a: number, b: number) => a-b);
+
+let Total: number = 0;
+let TotalValor: number = 0;
+let Media: number = 0;
+let MaiorValor: number = ArrayNumerosPares[0];
+let MenorValor: number = ArrayNumerosPares[0];
+
 //Criando um loop para exibir os Arrays de numeros pares e impares:
 for(let i:number = 0; i < ArrayNumerosPares.length; i++){
     console.log(`\n ${ArrayNumerosPares[i]} - Par`);
+    Total ++;
+    TotalValor += ArrayNumerosPares[i];
+    if(ArrayNumerosPares[i] < MenorValor){
+        MenorValor = ArrayNumerosPares[i];
+    }
+    if(ArrayNumerosPares[i] > MaiorValor){
+        MaiorValor = ArrayNumerosPares[i];
+    }
+
 }
+
+Media = TotalValor/Total;
+
+console.log(`\nA media do vetor de números pares é: ${Media}`);
+console.log(`\nA soma de todos os valores do vetor de números pares é: ${TotalValor}`);
+console.log(`\nO menor valor do array de números pares é: ${MenorValor}`);
+console.log(`\nO maior valor do array de números pares é: ${MaiorValor}`);
+
+Total= 0;
+TotalValor = 0;
+Media = 0;
+MaiorValor = ArrayNumerosImpares[0];
+MenorValor = ArrayNumerosImpares[0];
+
 for(let i:number = 0; i < ArrayNumerosImpares.length; i++){
     console.log(`\n ${ArrayNumerosImpares[i]} - Impar`);
+    Total ++;
+    TotalValor += ArrayNumerosImpares[i];
+    if(ArrayNumerosImpares[i] < MenorValor){
+        MenorValor = ArrayNumerosImpares[i];
+    }
+    if(ArrayNumerosImpares[i] > MaiorValor){
+        MaiorValor = ArrayNumerosImpares[i];
+    }
 }
+
+Media = TotalValor/Total;
+
+console.log(`\nA media do vetor de números impares é: ${Media}`);
+console.log(`\nA soma de todos os valores do vetor de números impares é: ${TotalValor}`);
+console.log(`\nO menor valor do array de números impares é: ${MenorValor}`);
+console.log(`\nO maior valor do array de números impares é: ${MaiorValor}`);
+
+//Exercício 1 certo
+
+//Exercício 2:
+//Inicilizando um array de strings com valores
+let produtos: string [] = ["Arroz", "Feijão", "Leite", "Pão"]
+
+//Trocando "Leite" por "Queijo"
+let posicoaQueijo: number = produtos.indexOf("Leite");
+
+produtos[posicoaQueijo] = "Queijo";
+
+console.log("\n",produtos);
+
+//Removendo o primeiro elemento da lista
+produtos.shift();
+
+console.log("\n",produtos);
+
+produtos.push("Café");
+
+console.log("\n",produtos);
+
+//Exercício 2 certp

@@ -125,3 +125,142 @@ let comJava = palavras.filter(p => p.includes("java"));
 console.log(comJava);
 
 //Exercícios
+//Exercício 1
+//Criando uma função completa para converter palavras minúsuclas em maiúsculas
+function maiuscula(f: string): string{
+    let maisucula = f.toUpperCase();
+    return maisucula;
+}
+
+//Testando função
+console.log(maiuscula("casa"));
+
+let maiusculaV: string; 
+
+//Criando uma função lambda para transformar palavras minúsculas em maiúsculas
+const maiusculaLambda = (palavra2: string): string => palavra2.toUpperCase();
+
+console.log("Conversão de uma palavra minúscula em maiúscula através da lambda: ",maiusculaLambda("casa"));
+
+//Exercício 1 certo 
+
+//Exercício 2
+//Criando uma função lambda que retorna o resultado de uma multiplicação 
+const multiplicarLambda = (a: number, b: number): number => a*b;
+
+//Testando a função
+console.log(multiplicarLambda(5,2));
+
+//Exercício 2 certo
+
+//Exercício 3
+//Criando um função para dobrar os valores de um vetor
+const dobrarNumeros = (a: number []): number [] => {
+    for(let i: number = 0; i < a.length; i++){
+        a[i] = a[i]*2;
+    }
+    return a;
+}
+
+//Criando um vetor e atribuindo valores a ele: 
+let vetorNumeros: number [] = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+//Exibindo o vetor antes de modificar
+console.log("O vetor antes de dobrar é: ", vetorNumeros);
+
+//Testando a função
+console.log("O vetor depois de dobrar é: ", dobrarNumeros(vetorNumeros));
+
+//Exercício 3 certo
+
+//Exercício 4
+type Funcionario = {
+    nome: string;
+    cargo: string;
+};
+
+const funcionarios: Funcionario[] = [
+    {nome: "Marcos", cargo: "Desenvolvedor"},
+    {nome: "Fernanda", cargo: "Gerenete"},
+    {nome: "Carlos", cargo: "Desenvolvedor"},
+    {nome: "Joana", cargo: "Analista"}
+];
+const cargoDesejado: string = "Desenvolvedor";
+
+let SelecaoFuncionarios: Funcionario [] = [];
+let IndexSelecao: number = 0;
+
+//Criando uma função para retornar o funcionário com o cargo desejado: 
+const CargoDesejado = (a: Funcionario []): Funcionario [] => {
+    for(let i: number = 0; i < a.length; i++){
+        if(a[i].cargo === cargoDesejado){
+            SelecaoFuncionarios[IndexSelecao] = a[i];
+            IndexSelecao++;
+        }
+    }
+    return SelecaoFuncionarios;
+}
+
+console.log(CargoDesejado(funcionarios));
+
+//Exercício 4 certo
+
+//Exercício 5
+type Aluno ={
+    nome: string;
+    nota: number;
+};
+
+const alunos: Aluno[] = [
+    {nome: "Alice", nota: 8},
+    {nome: "Bruno", nota: 5},
+    {nome: "Carla", nota: 7},
+    {nome: "Daniel", nota: 6}
+];
+
+const AlunosAprovados = (a: Aluno []): Aluno [] => {
+    let Aprovados: Aluno [] = [];
+    let indexAprovados: number = 0;
+    for(let i: number = 0; i < a.length; i++){
+        if(a[i].nota >= 7){
+            Aprovados[indexAprovados] = a[i];
+            indexAprovados++;
+        }
+    }
+    return Aprovados;
+}
+
+console.log("\nOs alunos aprovados são: ", AlunosAprovados(alunos));
+
+//Exercício 5 certo
+
+//Exercício 6
+type Evento = {
+    nome: string;
+    mes: string;
+};
+
+const eventos: Evento[] = [
+    {nome: "Workshop Typescript", mes: "Janeiro"},
+    {nome: "Hackathon", mes: "Março"},
+    {nome: "Conferência de IA", mes: "Janeiro"}
+];
+
+const mesDesejado: string = "Janeiro";
+
+//Criando uma função para retornar os eventos correspondentes com o mes desejado
+const EventosDesejados = (a: Evento []): Evento [] => {
+    let EventosJaneiro: Evento [] = [];
+    let indexEventosJaneiro: number = 0;
+    for(let i: number = 0; i < a.length; i++){
+        if(a[i].mes === mesDesejado){
+            EventosJaneiro[indexEventosJaneiro] = a[i];
+            indexEventosJaneiro++;
+        }
+    }
+    return EventosJaneiro;
+}
+
+console.log("\nOs eventos em Janeiro são: ", EventosDesejados(eventos));
+
+//Exercício 6 certo

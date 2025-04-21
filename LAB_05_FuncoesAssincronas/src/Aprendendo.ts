@@ -93,3 +93,54 @@ pessoas.sort((a: Pessoa, b: Pessoa) =>
 a.nome.localeCompare(b.nome));
 
 console.log(pessoas);
+
+//Exercícios
+//Exercício 1
+//Criando uma tipo de variável
+type Tarefa = {
+    descricao: string;
+    prioridade: number; 
+    concluida: boolean;
+}
+
+const tarefas: Tarefa[] = [
+    {descricao: "Fazer relatório", prioridade: 2, concluida: false},
+    {descricao: "Enviar e-mail", prioridade: 3, concluida: false},
+    {descricao: "Reunião com equipe", prioridade: 1, concluida: false}
+];
+
+function imprimirTarefas(descricao: string, indice: number, totalTarefas: number): void{
+    console.log("Terfa concluida: ",descricao);
+    console.log("Progesso: ", indice+1, "/", totalTarefas);
+}
+
+//Criando uma função
+function executarTarefas(a: Tarefa[], callback: (d: string, indx: number, qtd: number) => void, intervalo: number = 1000): void{
+    a.sort((p, q) => p.prioridade - q.prioridade);
+
+    let index: number = 0;
+
+    let totalTarefas: number = a.length;
+
+    let intervaloTarefa = setInterval(() => {
+        let tarefaAtual = a[index];
+        
+        if(tarefaAtual.descricao === "Cancelar"){
+            console.log("Execução cancelada");
+            clearInterval(intervaloTarefa);
+            return;
+        }
+
+        tarefaAtual.concluida = true;
+
+        callback(tarefaAtual.descricao, index, totalTarefas);
+
+        index++;
+
+        if(index >= totalTarefas){
+            clearInterval(intervaloTarefa);
+        }
+    }, intervalo)
+}
+
+executarTarefas(tarefas, imprimirTarefas, 1500);

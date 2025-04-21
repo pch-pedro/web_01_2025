@@ -12,6 +12,6 @@ export class Livro{
     }
 
     exibirDadoa(): void{
-        console.log(`O título do livro é: ${this.titulo}\nO autor do livro é: ${this.autor}\nO ano em que foi publicado foi: ${this.anoPublicacao}\nA editora do livro é: ${this.editora}`);
+        console.log(`\nO título do livro é: ${this.titulo}\nO autor do livro é: ${this.autor}\nO ano em que foi publicado foi: ${this.anoPublicacao}\nA editora do livro é: ${this.editora}`);
     }
 }

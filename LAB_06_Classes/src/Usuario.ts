@@ -8,6 +8,6 @@ export class Usuario{
     }
 
     boasVindas(): void{
-        console.log(`Bem-vindo(a), ${this.nome}! Seu e-mail é ${this.email}`)
+        console.log(`\nBem-vindo(a), ${this.nome}! Seu e-mail é ${this.email}`)
     }
 }

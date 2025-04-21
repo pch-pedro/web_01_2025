@@ -13,7 +13,7 @@ export class Aluno{
     
     imprimir(): void{
         console.log(
-            `Nome: ${this.nome}\nIdade: ${this.idade}\nCurso:${this.curso}\nMatrícula: ${this.matricula}`
+            `\nNome: ${this.nome}\nIdade: ${this.idade}\nCurso:${this.curso}\nMatrícula: ${this.matricula}`
         )    
     }
 }

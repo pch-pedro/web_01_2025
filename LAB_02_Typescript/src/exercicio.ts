@@ -365,12 +365,12 @@ else{
     MediaMultiplos = (Outros[Ref]);
 }
 
-//Calculando a soma do vetor de múltiplos de 3
+//Calculando a soma do vetor
 for(let i: number = 0; i < Outros.length; i++){
     SomaMultiplos += Outros[i];
 }
 
-//Calculando a Média dos múltiplos de 3
+//Calculando a Média
 MediaAritimetica = SomaMultiplos/Outros.length;
 
 //Pegando o maior valor do vetor
@@ -404,3 +404,60 @@ console.log("\nA Media de todos os valores de Outros é: ", MediaAritimetica);
 console.log("\nA soma de todos os valores de Outros é: ", SomaMultiplos);
 console.log("\nO maior valor de Outros é: ", MaiorValorMultiplos);
 console.log("\nO menor valor de Outros é: ", MenorValorMultiplos);
+
+//Exercício 4 certo
+
+//Exercício Bonus
+//Inicializando um array com valores: 
+let arrayProdutos: string [] = ["Arroz", "Feijão", "Leite", "Pão", "Açúcar", "Café", "Óleo"];
+
+//Criando uma variável para armazenar o indície do produto "Leite"
+let PosicaoLeite: number = 0;
+
+//Percorrendo o vetor até achar a posição de leite:
+for(let i: number = 0; i < arrayProdutos.length; i++){
+    if(arrayProdutos[i] === "Leite"){
+        PosicaoLeite = i;
+    }
+}
+
+//Trocando o Leite por Queijo
+arrayProdutos[PosicaoLeite] = "Queijo";
+
+//consultadno o vetro produtos
+console.log("\nAtualmente o vetor se encontra desta forma:\n", arrayProdutos);
+
+//Removendo o primeiro item da lista
+for(let i: number = 0; i < arrayProdutos.length; i++){
+    arrayProdutos[i] = arrayProdutos[i + 1];
+}
+
+//Consultando o veto de produtos
+console.log("\nO valor atual deste vetor é:", arrayProdutos);
+
+//Inserindo no final
+arrayProdutos[arrayProdutos.length] = "Farinha";
+
+//Consultando o vetor de produtos
+console.log("\nO vetor atual deste vetor é:", arrayProdutos);
+
+//Invertendo o vetor
+for(let i: number = 0; i < arrayProdutos.length/2; i++){
+    let primeiro: string = arrayProdutos[i];
+    arrayProdutos[i] = arrayProdutos[arrayProdutos.length -1 -i];
+    arrayProdutos[arrayProdutos.length -1 -i] = primeiro;
+}
+
+//consultando o vetor de produtos
+console.log("\nO estado atual deste vetor é:",arrayProdutos);
+
+let totalItens: number = 0;
+
+//Somando o valor total de itens do vetor
+for(let i: number = 0; i < arrayProdutos.length; i++){
+    if(typeof arrayProdutos[i] === "string"){
+        totalItens += 1;
+    }
+}
+
+console.log("\nO total de itens nesta lista é: ",totalItens);

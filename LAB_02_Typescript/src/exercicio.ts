@@ -174,4 +174,233 @@ produtos.push("Café");
 
 console.log("\n",produtos);
 
-//Exercício 2 certp
+//Exercício 2 certo
+
+//Exercício 3
+//criando um vetor misto e atribuindo valores 
+let dados: (string | number) [] = [10, "Azul", 25, "Vermelho", 30, "Verde"];
+
+//criando vetroes e variáveis para separação dos dados
+let valoresNumericos: number [] = [];
+let valorsTextuais: string [] = [];
+let indexNumericos: number = 0;
+let indexTextuais: number = 0;
+
+//criando um loop for para separar os dados a medida que percorre o vertor
+for (let i: number = 0; i < dados.length; i++){
+    if(typeof(dados[i]) === "number"){
+        valoresNumericos[indexNumericos] = dados[i] as number;
+        indexNumericos++;
+    }
+    else{
+        valorsTextuais[indexTextuais] = dados[i] as string;
+        indexTextuais++;
+    }
+}
+
+//imprimindo os vetores resultantes: 
+console.log("\n",valoresNumericos);
+console.log("\n",valorsTextuais);
+
+//Exercício 3 certo
+
+//Exercício 4
+//Criando um vetor de números e atribuindo valores a eles
+let arrayNumeros: number [] = [12, 25, 37, 40, 18, 55, 62, 71, 84, 91, 105, 120, 33, 47, 52];
+
+//Criando vetores para separar os dados em categorias
+let Multiplos3: number [] = [];
+let Multiplos5: number [] = [];
+let Outros: number [] = [];
+let indexMultiplos3 = 0;
+let indexMultiplos5 = 0;
+let indexOutros = 0;
+let MediaMultiplos = 0;
+let MediaAritimetica = 0;
+let SomaMultiplos = 0;
+
+//Criando um for para percorrer o vetor de numeros e separa-los em suas categorias
+for (let i: number = 0; i < arrayNumeros.length; i++){
+    if(arrayNumeros[i]%5 == 0){
+        Multiplos5[indexMultiplos5] = arrayNumeros[i];
+        indexMultiplos5++;
+    }
+    else if(arrayNumeros[i]%3 == 0){
+        Multiplos3[indexMultiplos3] = arrayNumeros[i];
+        indexMultiplos3++;
+    }
+    else{
+        Outros[indexOutros] = arrayNumeros[i];
+        indexOutros++;
+    }
+}
+
+let MaiorValorMultiplos = Multiplos3[0];
+let MenorValorMultiplos = Multiplos3[0];
+let valorTemporario: number = 0;
+
+Multiplos3.sort((a: number, b: number) => a-b);
+if(Multiplos3.length%2 === 0){
+    let Ref: number = 0;
+    Ref = Multiplos3.length/2;
+    MediaMultiplos = (Multiplos3[Ref - 1] + Multiplos3[Ref])/2;
+}
+else{
+    let Ref: number = Math.floor(Multiplos3.length/2);
+    MediaMultiplos = (Multiplos3[Ref]);
+}
+
+//Calculando a soma do vetor de múltiplos de 3
+for(let i: number = 0; i < Multiplos3.length; i++){
+    SomaMultiplos += Multiplos3[i];
+}
+
+//Calculando a Média dos múltiplos de 3
+MediaAritimetica = SomaMultiplos/Multiplos3.length;
+
+//Pegando o maior valor do vetor
+for(let i:number = 0; i < Multiplos3.length; i++){
+    if(Multiplos3[i] > MaiorValorMultiplos){
+        MaiorValorMultiplos = Multiplos3[i];
+    }
+}
+
+//Pegando o menor valor do vetor
+for(let i: number = 0; i < Multiplos3.length; i++){
+    if(Multiplos3[i] < MenorValorMultiplos){
+        MenorValorMultiplos = Multiplos3[i];
+    }
+}
+
+//Ordenando o vetor de múltiplos de 3 em ordem decrescente
+for(let i:number = 0; i < Multiplos3.length; i++){
+    for(let i2:number = 0; i2 < Multiplos3.length - 1; i2++){
+        if(Multiplos3[i2] < Multiplos3[i2 + 1]){
+            valorTemporario = Multiplos3[i2];
+            Multiplos3[i2] = Multiplos3[i2  + 1];
+            Multiplos3[i2 + 1] = valorTemporario;
+        }
+    }
+}
+console.log("\nOs multiplos de 3 são:\n",Multiplos3);
+console.log("\nA Mediana de múltiplos de 3 é: ", MediaMultiplos);
+console.log("\nA Media de todos os valores múltiplos de 3 é: ", MediaAritimetica);
+console.log("\nA soma de todos os valores múltiplos de 3 é: ", SomaMultiplos);
+console.log("\nO maior valor de múltiplos de 3 é: ", MaiorValorMultiplos);
+console.log("\nO menor valor de múltiplos de 3 é: ", MenorValorMultiplos);
+
+MediaMultiplos = 0;
+MediaAritimetica = 0;
+SomaMultiplos = 0;
+MaiorValorMultiplos = Multiplos5[0];
+MenorValorMultiplos = Multiplos5[0];
+valorTemporario = 0;
+
+Multiplos5.sort((a: number, b: number) => a-b);
+if(Multiplos5.length%2 === 0){
+    let Ref: number = 0;
+    Ref = Multiplos5.length/2;
+    MediaMultiplos = (Multiplos5[Ref - 1] + Multiplos5[Ref])/2;
+}
+else{
+    let Ref: number = Math.floor(Multiplos5.length/2);
+    MediaMultiplos = (Multiplos5[Ref]);
+}
+
+//Calculando a soma do vetor de múltiplos de 3
+for(let i: number = 0; i < Multiplos5.length; i++){
+    SomaMultiplos += Multiplos5[i];
+}
+
+//Calculando a Média dos múltiplos de 3
+MediaAritimetica = SomaMultiplos/Multiplos5.length;
+
+//Pegando o maior valor do vetor
+for(let i:number = 0; i < Multiplos5.length; i++){
+    if(Multiplos5[i] > MaiorValorMultiplos){
+        MaiorValorMultiplos = Multiplos5[i];
+    }
+}
+
+//Pegando o menor valor do vetor
+for(let i: number = 0; i < Multiplos5.length; i++){
+    if(Multiplos5[i] < MenorValorMultiplos){
+        MenorValorMultiplos = Multiplos5[i];
+    }
+}
+
+//Ordendnaod o vetor de múltiplos de 5 em ordem decrescente
+for(let i:number = 0; i < Multiplos5.length; i++){
+    for(let i2:number = 0; i2 < Multiplos5.length - 1; i2++){
+        if(Multiplos5[i2] < Multiplos5[i2 + 1]){
+            valorTemporario = Multiplos5[i2];
+            Multiplos5[i2] = Multiplos5[i2  + 1];
+            Multiplos5[i2 + 1] = valorTemporario;
+        }
+    }
+}
+
+console.log("\nOs multiplos de 5 são:\n",Multiplos5);
+console.log("\nA Mediana de múltiplos de 5 é: ", MediaMultiplos);
+console.log("\nA Media de todos os valores múltiplos de 5 é: ", MediaAritimetica);
+console.log("\nA soma de todos os valores múltiplos de 5 é: ", SomaMultiplos);
+console.log("\nO maior valor de múltiplos de 5 é: ", MaiorValorMultiplos);
+console.log("\nO menor valor de múltiplos de 5 é: ", MenorValorMultiplos);
+
+MediaMultiplos = 0;
+MediaAritimetica = 0;
+SomaMultiplos = 0;
+MaiorValorMultiplos = Outros[0];
+MenorValorMultiplos = Outros[0];
+valorTemporario = 0;
+
+Outros.sort((a: number, b: number) => a-b);
+if(Outros.length%2 === 0){
+    let Ref: number = 0;
+    Ref = Outros.length/2;
+    MediaMultiplos = (Outros[Ref - 1] + Outros[Ref])/2;
+}
+else{
+    let Ref: number = Math.floor(Outros.length/2);
+    MediaMultiplos = (Outros[Ref]);
+}
+
+//Calculando a soma do vetor de múltiplos de 3
+for(let i: number = 0; i < Outros.length; i++){
+    SomaMultiplos += Outros[i];
+}
+
+//Calculando a Média dos múltiplos de 3
+MediaAritimetica = SomaMultiplos/Outros.length;
+
+//Pegando o maior valor do vetor
+for(let i:number = 0; i < Outros.length; i++){
+    if(Outros[i] > MaiorValorMultiplos){
+        MaiorValorMultiplos = Outros[i];
+    }
+}
+
+//Pegando o menor valor do vetor
+for(let i: number = 0; i < Outros.length; i++){
+    if(Outros[i] < MenorValorMultiplos){
+        MenorValorMultiplos = Outros[i];
+    }
+}
+
+//Ordenando o vetor Outros em ordem decrescente
+for(let i:number = 0; i < Outros.length; i++){
+    for(let i2:number = 0; i2 < Outros.length - 1; i2++){
+        if(Outros[i2] < Outros[i2 + 1]){
+            valorTemporario = Outros[i2];
+            Outros[i2] = Outros[i2  + 1];
+            Outros[i2 + 1] = valorTemporario;
+        }
+    }
+}
+
+console.log("\nOs multiplos de outros são: \n",Outros);
+console.log("\nA Mediana de Outros é: ", MediaMultiplos);
+console.log("\nA Media de todos os valores de Outros é: ", MediaAritimetica);
+console.log("\nA soma de todos os valores de Outros é: ", SomaMultiplos);
+console.log("\nO maior valor de Outros é: ", MaiorValorMultiplos);
+console.log("\nO menor valor de Outros é: ", MenorValorMultiplos);

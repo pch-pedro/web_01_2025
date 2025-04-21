@@ -1,3 +1,5 @@
+import { DateUtils } from "./DateUtils";
+
 //Sintaxe Básica Interface
 interface Pessoa{
     nome: string;
@@ -92,3 +94,66 @@ console.log(data2 < data3);
 const data4 = new Date();
 data4.setDate(data1.getDate() + 5);
 console.log(data4);
+
+const hoje1 = new Date();
+const dataReferencia = new Date("2025-04-01");
+const utils = new DateUtils(hoje1, "dd/mm/yyyy", dataReferencia);
+
+console.log("\nUsando o Formatar Data:",utils.formatarData(hoje1, "dd/mm/yyyy"));
+console.log("\nPegando a Diferença em Dias:",utils.diferencaEmDias());
+console.log("\nAdicionando 10 dias:",utils.adicionarDias(hoje1, 10));
+console.log("\nVerificando se é final de semana:",utils.ehFinalDeSemana(hoje1));
+console.log("\nConvertendo a data em ISO:",utils.converterParaISO(hoje1));
+console.log("\nDescobrindo a idade da pessoa:",utils.calcularIdade("2005-06-03"));
+
+//Exercício 2:
+interface Livro{
+    titulo: string;
+    autor: string;
+    anoPublicacao: number;
+}
+
+const Livro2: Livro ={
+    titulo: "Dom Casmurro",
+    autor: "Machado de Assis",
+    anoPublicacao: 1899,
+}
+
+const Livro3: Livro ={
+    titulo: "Cem anos de Solidão",
+    autor: "Gabriel García Márquez",
+    anoPublicacao: 1967,
+}
+
+console.log("\nO primeiro livro é: ",Livro2);
+console.log("\nO segundo livro é: ",Livro3);
+
+//Exercício 2 certo
+
+//Exercício 3
+interface Veiculo{
+    marca: string;
+    modelo: string;
+    ligar(): void
+}
+
+class Carro2 implements Veiculo{
+    marca: string;
+    modelo: string;
+    anoFabricacao: string;
+
+    constructor(marca: string, modelo: string, anoFabricacao: string){
+        this.marca = marca;
+        this.modelo = modelo;
+        this.anoFabricacao = anoFabricacao;
+    }
+
+    ligar(): void {
+        console.log("\nCarro ligado");
+    }
+}
+
+const carroLegal = new Carro2 ("Chevrolet", "Corvette", "2025-06-03");
+carroLegal.ligar();
+
+console.log("\n",carroLegal);

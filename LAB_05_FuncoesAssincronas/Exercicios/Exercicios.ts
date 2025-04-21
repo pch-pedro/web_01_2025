@@ -7,5 +7,5 @@ type Tarefa = {
 
 //Criando uma função
 function executarTarefas(ArrayTarefas: Tarefa, ): Tarefa{
-    
+    return ArrayTarefas;
 }
